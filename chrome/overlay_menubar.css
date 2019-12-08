@@ -2,6 +2,7 @@
 
 #toolbar-menubar{
   position: fixed;
+  display: block;
   top: 0;
   width: 100vw;
   height: initial !important;
@@ -12,7 +13,7 @@
 
 :root[tabsintitlebar][sizemode="maximized"] #toolbar-menubar{ top: 8px; }
 
-#toolbar-menubar > .titlebar-buttonbox-container{ float: right }
+#toolbar-menubar > .titlebar-buttonbox-container{ float: right; display: block }
 #toolbar-menubar[inactive] > .titlebar-buttonbox-container{ display: none }
 
 #main-menubar{ height: calc(var(--tab-min-height) + 4px); background-color: var(--toolbar-bgcolor); }

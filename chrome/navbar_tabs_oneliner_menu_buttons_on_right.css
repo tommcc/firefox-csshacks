@@ -16,8 +16,16 @@ Window controls will be all wrong without it
 #navigator-toolbox{--uc-buttons-width: calc(56px + 4 * var(--toolbarbutton-outer-padding) + var(--uc-menubutton-padding,6px))}
 #nav-bar:not([overflowing]) > #nav-bar-customization-target{ --uc-buttons-width: calc(28px + 2 * var(--toolbarbutton-outer-padding) + 6px) }
 /* Override for other densities */
-:root[uidensity="compact"] > #navigator-toolbox{ --uc-toolbar-height: 32px; --uc-menubutton-padding: 0px}
-:root[uidensity="touch"] > #navigator-toolbox{ --uc-toolbar-height: 40px; }
+:root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 32px; --uc-menubutton-padding: 0px}
+:root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 40px; }
+
+:root[uidensity=compact] #urlbar-container.megabar{
+  --urlbar-container-height: var(--uc-toolbar-height) !important;
+  padding-block: 0 !important;
+}
+:root[uidensity=compact] #urlbar.megabar{
+  --urlbar-toolbar-height: var(--uc-toolbar-height) !important;
+}
 
 /* prevent urlbar overflow on narrow windows */
 /* Dependent on how many items are in navigation toolbar ADJUST AS NEEDED */
@@ -34,7 +42,7 @@ Window controls will be all wrong without it
 #nav-bar-customization-target{ margin-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-window-control-width) - var(--uc-buttons-width) - var(--uc-window-drag-space-width)) }
 
 @supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled"){
-  .titlebar-buttonbox-container{ position: fixed; left: 0px; z-index: 3; }
+  .titlebar-buttonbox-container{ position: fixed; display: blocK; left: 0px; z-index: 3; }
   #nav-bar-customization-target{ margin-right: calc(100vw - (var(--uc-navigationbar-width)) - var(--uc-buttons-width) - var(--uc-window-drag-space-width)) }
 }
 

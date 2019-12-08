@@ -18,6 +18,7 @@
       --in-content-box-background: rgba(255,255,255,0.1) !important;
       --in-content-deemphasized-text: var(--in-content-text-color) !important;
       scrollbar-color: var(--in-content-text-color) var(--in-content-page-background) !important;
+      color:var(--in-content-text-color) !important;
     }
   
   menulist > menupopup{ background-color: var(--in-content-page-background) !important; }
@@ -37,6 +38,8 @@
     -moz-context-properties: fill;
     fill : CurrentColor !important;
   }
+  /* make panel background blurry if the background is translucent. Requires pref layout.css.backdrop-filter.enabled  */
+  html|panel-list{ backdrop-filter: blur(28px) }
 }
 
 /* Get addons page */
