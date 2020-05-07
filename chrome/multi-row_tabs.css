@@ -8,7 +8,7 @@
 /* This maximum visible rows won't work before Fx66 */
 /* So this setting does nothing on Fx65 and all tab rows will be shown */
 :root{
-    --multirow-n-rows: 3;
+    --multirow-n-rows: 7;
     --multirow-tab-min-width: 100px;
     --multirow-tab-dynamic-width: 1; /* Change to 0 for fixed-width tabs using the above width. */
 }
