@@ -1,16 +1,15 @@
 /* Makes tabs toolbar items zero-height initially and sets enlarge them to fill up space equal to tab-min-height set on tabs */
 /* Firefox 65+ only */
 
-/* REMOVE ALL BUTTONS you can from the tabs toolbar or this won't work properly */
-
 :root[sizemode="normal"] #nav-bar{ --uc-window-drag-space-width: 20px }
 
 #titlebar{ -moz-appearance: none !important; }
 
-#tabbrowser-tabs, #tabbrowser-tabs > .tabbrowser-arrowscrollbox{ min-height: 0 !important; }
+#tabbrowser-tabs, #tabbrowser-tabs > .tabbrowser-arrowscrollbox, #tabbrowser-arrowscrollbox{ min-height: 0 !important; }
 
 :root:not([customizing]) #tabbrowser-tabs .tabs-newtab-button,
 :root:not([customizing]) #tabs-newtab-button,
+:root:not([customizing]) #TabsToolbar-customization-target > .toolbarbutton-1,
 :root:not([customizing]) #TabsToolbar .titlebar-button{
   -moz-appearance: none !important;
   height: 0px;
@@ -19,6 +18,7 @@
   -moz-box-align: stretch;
   margin: 0 !important;
 }
+
 #tabbrowser-tabs .tabbrowser-tab{ height: var(--tab-min-height) }
 
 #tabbrowser-tabs .tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]{
@@ -36,8 +36,9 @@
   background-color: transparent !important;
 }
 /* Extra top padding  in maximized window */
-:root[sizemode="maximized"] #navigator-toolbox{ padding-top:7px !important; }
-
+@media (-moz-os-version: windows-win10){
+  :root[sizemode="maximized"] #navigator-toolbox{ padding-top:7px !important; }
+}
 /* Fix window controls not being clickable */
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"][inactive]{
   transition: height 0ms steps(1) 80ms;

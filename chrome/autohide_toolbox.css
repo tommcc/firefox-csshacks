@@ -18,6 +18,8 @@
   }
 }
 
+:root[sizemode="fullscreen"]{ margin-top: 0px !important; }
+
 #navigator-toolbox{
   position: fixed !important;
   display: block;
@@ -26,9 +28,10 @@
   transform-origin: top;
   line-height: 0;
   z-index: 1;
+  pointer-events: none;
 }
 
-#navigator-toolbox > *{ line-height: normal }
+#navigator-toolbox > *{ line-height: normal; pointer-events: auto }
 
 #navigator-toolbox,
 #navigator-toolbox > *{
@@ -43,13 +46,17 @@
 
 :root[sizemode="maximized"] #navigator-toolbox:not(:focus-within):not(:hover){ transform: rotateX(89.5deg) }
 
+/* Don't apply transform before window has been fully created */
+:root:not([sessionrestored]) #navigator-toolbox{ transform:none !important }
+
 :root[customizing] #navigator-toolbox{
-	position: relative !important;
-	transform: none !important;
-	opacity: 1 !important;
+  position: relative !important;
+  transform: none !important;
+  opacity: 1 !important;
 }
 
-#PersonalToolbar[collapsed]{ margin-block-end: -7px }
+#navigator-toolbox[inFullscreen] > #PersonalToolbar,
+#PersonalToolbar[collapsed="true"]{ display: none }
 
 /* Uncomment this if tabs toolbar is hidden with hide_tabs_toolbar.css */
  /*#titlebar{ margin-bottom: -9px }*/
