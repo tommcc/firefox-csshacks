@@ -1,6 +1,8 @@
-/* Show addon management buttons without opening popup */
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/content/addon_manage_buttons_without_popup.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
 
 /* Show addon management buttons without opening popup */
+
 
 @-moz-document url-prefix("chrome://mozapps/content/extensions/aboutaddons.html"){
  
@@ -33,7 +35,7 @@
   div.list{ display: inherit !important; flex-direction: row !important; } 
   
   panel-item[action="toggle-disabled"]{ --icon: url("chrome://browser/skin/quit.svg") }
-  panel-item[action="preferences"]{ --icon: url("chrome://browser/skin/settings.svg") }
+  panel-item[action="preferences"]{ --icon: url("chrome://global/skin/icons/settings.svg") }
   
 /* Uncomment these if you want to hide button label - such as with compact_addons_manager */
 /* This is basically a requirement with compact_addons_manager.css because the button text causes the cards to overflow */

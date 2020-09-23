@@ -1,12 +1,14 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/multi-row_tabs.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
 /* Makes tabs to appear on multiple lines */
 /* Tab reordering will not work and can't be made to work */
 /* You can use multi-row_tabs_window_control_patch.css to move window controls to nav-bar*/
 
-/* It's recommended to move tabs new-tab-button outside tabs toolbar */
+/* You might want to move tabs-new-tab-button outside tabs toolbar for smoother behavior */
 
 /* Change the --multirow-n-rows to change maximum number of rows before the rows will start to scroll  */
-/* This maximum visible rows won't work before Fx66 */
-/* So this setting does nothing on Fx65 and all tab rows will be shown */
+
 :root{
     --multirow-n-rows: 7;
     --multirow-tab-min-width: 100px;
@@ -40,6 +42,7 @@
   }
 }
 
+.scrollbox-clip[orient="horizontal"],
 #tabbrowser-arrowscrollbox{
   overflow: -moz-hidden-unscrollable;
   display: block;
@@ -67,5 +70,5 @@
 
 #alltabs-button,
 :root:not([customizing]) #TabsToolbar #new-tab-button,
-#tabbrowser-tabs spacer,
+#tabbrowser-arrowscrollbox > spacer,
 .tabbrowser-tab::after{ display: none !important }

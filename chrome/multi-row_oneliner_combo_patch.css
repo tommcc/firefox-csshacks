@@ -1,9 +1,12 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/multi-row_oneliner_combo_patch.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
 /*
 This a compatibility patch to combine multi-row_tabs.css and navbar_tabs_responsive_oneliner.css
 
 Set the pref layout.css.osx-font-smoothing.enabled to true - this is enabled by default on OSX and doesn't do anything otherwise. Used to detect whether window controls are on left or on right.
 
-This patch only supports window controls on right - ie. they will be drawn to the left of the nav-bar. If you want to use this with window controls on left you must enable native titlebar.
+This patch only supports window controls on left - ie. they will be drawn to the left of the nav-bar. If you want to use this with window controls on right you must enable native titlebar.
 
 There is no good way to handle scrollable multiple rows so you should set the maximum rows in multi-row_tabs.css to something you won't ever hit. Or you could just check what happens.
  */
@@ -13,7 +16,7 @@ You will need 5 other stylesheets - order may or may not matter, but this patch 
 
 chrome/window_control_placeholder_support.css
 chrome/navbar_tabs_responsive_oneliner.css
-chrome/Fx65_tabs_on_bottom.css
+chrome/tabs_on_bottom.css
 chrome/multi-row_tabs.css
 chrome/urlbar_full_width.css
  */

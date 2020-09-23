@@ -1,3 +1,6 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/status_inside_urlbar.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
 /* STATUSPANEL INSIDE URLBAR */
 
 /**************
@@ -39,9 +42,9 @@ As a workaround, the -moz-element background image is removed somewhat often whi
 /* Hide the status ovelay when urlbar is hovered */
 #urlbar:hover .urlbar-input-box::after,
 #urlbar[focused] .urlbar-input-box::after{
-	visibility: hidden;
-	/* Remove the image to get rid of -moz-element() related problems */
-	background-image: none !important
+  visibility: hidden;
+  /* Remove the image to get rid of -moz-element() related problems */
+  background-image: none !important
 }
 
 :root[uidensity="compact"] #urlbar .urlbar-input-box::after{ background-position-y: 1px }
@@ -50,14 +53,14 @@ As a workaround, the -moz-element background image is removed somewhat often whi
 #statuspanel-inner > #statuspanel-label{
   height:3em;
   min-width: 1000px;
-  background-color: var(--lwt-toolbar-field-background-color, hsla(0,0%,100%,.8)) !important;
+  background-color: var(--lwt-toolbar-field-focus) !important;
   border: none !important;
-  font-size: inherit;
+  font-size: 1.15em;
   color: inherit !important;
   margin-right: 0px !important;
 }
 /* If you use a theme where urlbar is partially transparent you should edit this color to something that closely matches the perceived color of urlbar. Or perhaps use background-image - linear-gradient() can work well here. But keep the color or image opaque or otherwise you'll face an issue where urlbar text bleeds through */
-#statuspanel-inner{ background-color: var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor) }
+#statuspanel-inner{ background-color: var(--toolbar-bgcolor) }
 
 #statuspanel{ color: var(--lwt-toolbar-field-color, black) ; z-index: -1; max-width: 100% !important; }
 #statuspanel[type="status"] { color: Highlight }
@@ -75,6 +78,8 @@ As a workaround, the -moz-element background image is removed somewhat often whi
  Don't show common values to save space (useful for oneliner)
  If you change the font size of the label then you'll have to modify these too 
  non-https links get a slight red hue
+*/
+
 /*
 #statuspanel-inner > #statuspanel-label[value^="http:"]{ margin-left: -3.7ch !important; color: tomato }
 #statuspanel-inner > #statuspanel-label[value^="https:"]{ margin-left: -6.1ch !important; }

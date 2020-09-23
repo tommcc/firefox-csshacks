@@ -1,3 +1,6 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/navbar_tabs_oneliner_menu_buttons_on_right.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
 /* Variation of oneliner where menubutton and overflow button are next to window controls (if window controls are on right side) */
 
 /* IMPORTANT */
@@ -19,11 +22,11 @@ Window controls will be all wrong without it
 :root[uidensity="compact"] #navigator-toolbox{ --uc-toolbar-height: 32px; --uc-menubutton-padding: 0px}
 :root[uidensity="touch"] #navigator-toolbox{ --uc-toolbar-height: 40px; }
 
-:root[uidensity=compact] #urlbar-container.megabar{
+:root[uidensity="compact"] #urlbar-container{
   --urlbar-container-height: var(--uc-toolbar-height) !important;
   padding-block: 0 !important;
 }
-:root[uidensity=compact] #urlbar.megabar{
+:root[uidensity="compact"] #urlbar{
   --urlbar-toolbar-height: var(--uc-toolbar-height) !important;
 }
 
@@ -33,7 +36,10 @@ Window controls will be all wrong without it
   #urlbar-container{ min-width:unset !important }
 }
 
-#TabsToolbar{ margin-left: var(--uc-navigationbar-width); }
+#TabsToolbar{
+  margin-left: var(--uc-navigationbar-width);
+  --tabs-navbar-shadow-size: 0px;
+}
 #tabbrowser-tabs{ --tab-min-height: var(--uc-toolbar-height) !important; }
 /* This isn't useful when tabs start in the middle of the window */
 .titlebar-placeholder[type="pre-tabs"],.titlebar-spacer[type="pre-tabs"]{ width:8px !important}

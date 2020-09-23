@@ -1,12 +1,15 @@
+/* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/urlbar_and_popup_equal_width.css made available under Mozilla Public License v. 2.0
+See the above repository for updates as well as full license text. */
+
 /* DEPRECATED AS OF FIREFOX 75 */
 /* Constrains urlbar popup to urlbar width */
 /* Firefox 70+ */
 
 #urlbar-container{
-	transform: translateY(0);
-	position: relative;
-	z-index: 10;
-	padding-block: 3px !important;
+  transform: translateY(0);
+  position: relative;
+  z-index: 10;
+  padding-block: 3px !important;
   padding-inline: 0px !important;
   margin-inline: 5px !important;
 }
