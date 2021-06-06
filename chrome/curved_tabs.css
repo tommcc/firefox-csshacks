@@ -4,8 +4,19 @@ See the above repository for updates as well as full license text. */
 /* Makes tabs more curvy. Also disables tab separators since there's no easy way to make the look good */
 
 #tabbrowser-tabs{
-  --uc-tab-curve-size: 17px; /* 10px looks about like chromium - 17px looks close to Australis tabs */
+  --uc-tab-curve-size:17px; /* 10px looks about like chromium - 17px looks close to Australis tabs */
+  --uc-tabs-scrollbutton-border: 0px;
+  --proton-tab-block-margin:0px;
+  --tab-block-margin:0px;
+  --tab-min-height: 34px;
+  --uc-tab-line-color: rgb(10, 132, 255);
 }
+
+.tabbrowser-tab{
+  padding-inline: 0px !important; /* By default, proton tabs have 2px + 2px = 4px space between them */
+}
+
+#TabsToolbar{ --toolbarbutton-inner-padding: 6px !important; }
 
 .tabbrowser-tab:hover{ --uc-tab-fill: rgba(0,0,0,.1) }
 .tabbrowser-tab[selected]{ --uc-tab-curve-padding: 1px } 
@@ -48,7 +59,7 @@ See the above repository for updates as well as full license text. */
 
 .tabbrowser-tab:hover > stack > .tab-background,
 .tab-background[selected]{
-  border-radius: var(--uc-tab-curve-size) var(--uc-tab-curve-size) 0 0;
+  border-radius: var(--uc-tab-curve-size) var(--uc-tab-curve-size) 0 0 !important;
   overflow: -moz-hidden-unscrollable
 }
 
@@ -57,14 +68,38 @@ See the above repository for updates as well as full license text. */
   margin-inline-start: var(--uc-tab-curve-size) !important;
 }
 
+#scrollbutton-up,
+#scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; }
 .tab-background[selected]{ border: 1px solid var(--tabs-border-color) !important; border-bottom: none !important }
+
+.tab-context-line{
+  -moz-box-ordinal-group: 2;
+  margin-block: 0 !important;
+}
+
+/* Annoying fix to prevent hovering of last tab to trigger tab overflow, better solution wanted */
+.tabbrowser-tab[last-visible-tab]{ margin-inline-end: var(--uc-tab-curve-size) !important; }
+
+/* OPTIONAL - COLORS - show tabs border, selected tab line and make selected tab match the main toolbar color. Also disables tab shadow */
+/*
+#navigator-toolbox{ --tabs-border-color: color-mix(in srgb, currentcolor, transparent 80%) !important; }
+#tabbrowser-tabs{ --lwt-selected-tab-background-color: var(--toolbar-bgcolor) }
+.tabbrowser-tab .tab-background{ border-top: none !important; box-shadow: none !important; }
+
+.tab-background[selected]::before{
+  content: "";
+  display: -moz-box;
+  height: 2px;
+  background: var(--uc-tab-line-color) !important;
+}
+*/
+
 
 /* OPTIONAL - uncomment the following to flip the curves vertically - maybe useful for tabs on bottom ? */
 /*
 .tab-background{ -moz-box-direction: reverse }
 .tabbrowser-tab:hover > stack > .tab-background,
-.tab-background[selected]{ border-radius: 0 0 var(--uc-tab-curve-size) var(--uc-tab-curve-size) }
+.tab-background[selected]{ border-radius: 0 0 var(--uc-tab-curve-size) var(--uc-tab-curve-size) !important }
 .tabbrowser-tab > stack::before{ transform: scaleY(-1) !important; }
 .tabbrowser-tab > stack::after{ transform: scaleY(-1) scaleX(-1) !important; }
 */
-
