@@ -13,8 +13,9 @@ See the above repository for updates as well as full license text. */
 #PanelUI-button,
 #nav-bar-overflow-button{ z-index: 2; position: relative }
 
+:root[sizemode="normal"] #urlbar-container{ margin-inline: 40px !important; }
 
-#urlbar-input-container > :not(.urlbar-input-box){ visibility: hidden }
+#urlbar-input-container > :not(.urlbar-input-box){ opacity: 0 }
 
 #urlbar-background{
   background: transparent !important;
@@ -22,11 +23,14 @@ See the above repository for updates as well as full license text. */
   box-shadow: none !important;
 }
 .urlbarView{
-  background: var(--lwt-toolbar-field-focus);
-  border: 1px solid var(--lwt-toolbar-field-focus-border-color) !important;
+  background: var(--toolbar-field-focus-background-color);
+  border: 1px solid var(--toolbar-field-focus-border-color) !important;
   z-index: 1;
   padding: 6px;
   border-radius: 6px;
+  box-shadow: 0 0 26px #444;
+  left: 50vw;
+  margin-left: -50% !important;
 }
 
 .tabbrowser-tab[selected][fadein]{ max-width: 100vw !important; min-width: 200px !important }
@@ -37,7 +41,7 @@ See the above repository for updates as well as full license text. */
 #navigator-toolbox:focus-within .tab-background[selected]{
   background-image: -moz-element(#urlbar-input) !important;
   background-position: calc(var(--tab-inline-padding,4px) + 6px) 3px !important;
-  background-color: var(--lwt-toolbar-field-focus) !important;
+  background-color: var(--toolbar-field-focus-background-color) !important;
   background-size: auto !important;
 }
 
