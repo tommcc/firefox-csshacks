@@ -6,6 +6,10 @@ See the above repository for updates as well as full license text. */
 /* By default, menubar will stay on top with two options to select it's behavior - see below */
 
 @-moz-document url(chrome://browser/content/browser.xhtml){
+  
+  /* Dummy variable to support versions 94-96, can be removed when 96 lands */
+  :root{ --lwt-frame: var(--lwt-accent-color) }
+  
   #titlebar{ -moz-appearance: none !important; }
 
   @media (-moz-os-version: windows-win10){
@@ -18,9 +22,13 @@ See the above repository for updates as well as full license text. */
 
   #mainPopupSet,
   #browser,
-  #customization-container
-  ,#nav-bar, #PersonalToolbar/* Remove this row if you want tabs to be the top-most row */
-  { -moz-box-ordinal-group: 0 }
+  #customization-container,
+  #tab-notification-deck{
+    -moz-box-ordinal-group: 0
+  }
+
+  /* Remove the next row if you want tabs to be the top-most row */
+  #titlebar{ -moz-box-ordinal-group: 2 } 
 
   #toolbar-menubar{ position: fixed; display: flex; width: 100vw; top: 0px; }
   /* Remove bottom border that won't do anything useful when at bottom of the window */
@@ -52,7 +60,7 @@ See the above repository for updates as well as full license text. */
   /* These three rules exist for compatibility with autohide_toolbox.css */
   #navigator-toolbox{ bottom: 0px; transform-origin: bottom }
   #main-window > body > box{ margin-top: 0 !important; }
-  #toolbar-menubar{ z-index: 1; background-color: var(--lwt-accent-color,black); }
+  #toolbar-menubar{ z-index: 1; background-color: var(--lwt-frame,black); }
   
   /**************
   Menubar options - By default, menubar is overlayed on top of web-content

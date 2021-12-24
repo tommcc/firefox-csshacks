@@ -15,8 +15,8 @@ See the above repository for updates as well as full license text. */
 
 @-moz-document url(chrome://browser/content/browser.xhtml){
   
-  /* Dummy variable to support both versions 89-90 */
-  :root{ --tab-block-margin: var(--proton-tab-block-margin) }
+  /* Dummy variable to support versions 94-96, can be removed when 96 lands */
+  :root{ --lwt-frame: var(--lwt-accent-color) }
   
   :root{
     --multirow-toolbar-height: 40px;
@@ -28,11 +28,13 @@ See the above repository for updates as well as full license text. */
   @media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
     :root[sizemode="maximized"]{ --multirow-top-padding: 8px }
   }
-  :root[uidensity="compact"]{--multirow-toolbar-height: 32px}
+  :root[uidensity="compact"]{--multirow-toolbar-height: 34px}
   :root{ border-top-width: 0px !important }
 
   #main-window > body > box,
   #navigator-toolbox{ -moz-box-ordinal-group: 2; border-bottom: 0px !important }
+  
+  #tab-notification-deck{ -moz-box-ordinal-group: 0 }
 
   #titlebar{-moz-appearance: none !important; } /* Try setting to "-moz-window-titlebar" if you face issues */
 
@@ -45,6 +47,7 @@ See the above repository for updates as well as full license text. */
     width: calc(100vw - 30px);
     top: var(--multirow-top-padding);
   }
+  #nav-bar-customization-target{ -webkit-box-flex: 1 }
   :root[inFullscreen] #nav-bar,
   :root[tabsintitlebar] #nav-bar{
     margin-right: 138px;
@@ -108,7 +111,7 @@ See the above repository for updates as well as full license text. */
   #toolbar-menubar:hover{ z-index: 2 }
   #toolbar-menubar:hover > #menubar-items{
     visibility: visible;
-    background-image: linear-gradient( to left,transparent,var(--lwt-accent-color) 35px);
+    background-image: linear-gradient( to left,transparent,var(--lwt-frame) 35px);
   }
 
   #toolbar-menubar > .titlebar-buttonbox-container{ background: var(--toolbar-bgcolor); }
@@ -181,7 +184,10 @@ See the above repository for updates as well as full license text. */
   .tabbrowser-tab > stack{ width: 100%; height: 100%; }
 
   /* This should fix potential flash that could occur when bottom border is hovered to show tabs in fullscreen mode */
-  #tabbrowser-tabpanels{ background-color: var(--lwt-accent-color) !important; }
+  #tabbrowser-tabpanels{ background-color: var(--lwt-frame) !important; }
+
+  /* remove bottom margin so it doesn't throw off row height computation */
+  #tabs-newtab-button{ margin-bottom: 0 !important; }
 
   /* Hide some things that are unnecessary in multi-row below content mode */
 
