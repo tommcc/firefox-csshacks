@@ -1,2 +1,7 @@
 @import url("chrome/multi-row_tabs.css");
 @import url("chrome/tab_close_button_always_on_hover.css");
+
+/* Remove sidebar header */
+#sidebar-header {
+  display: none
+}
