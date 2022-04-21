@@ -16,10 +16,11 @@ Window controls will be all wrong without it
 #TabsToolbar > .titlebar-buttonbox-container { display: none }
 
 #tabbrowser-tabs,
-#tabbrowser-tabs > .tabbrowser-arrowscrollbox,
 #tabbrowser-arrowscrollbox{ min-height: 0 !important; }
 
-#TabsToolbar > .titlebar-spacer[type="post-tabs"]{ width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) !important; }
+#TabsToolbar > .titlebar-spacer[type="post-tabs"]{
+  width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-post,0px)) !important;
+}
 #toolbar-menubar > spacer{ pointer-events: none }
 
 :root:not([customizing]) #tabs-newtab-button,
@@ -39,9 +40,14 @@ Window controls will be all wrong without it
 }
 .accessibility-indicator > hbox{ padding-block: 0 !important }
 
-#tabbrowser-tabs .tabbrowser-tab{ height: calc(var(--tab-min-height) + 2 * var(--tab-block-margin)) }
-#tabbrowser-tabs .tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]{
+.tabbrowser-tab{
+  height: calc(var(--tab-min-height) + 2 * var(--tab-block-margin));
+}
+.tabbrowser-tab[first-visible-tab="true"][last-visible-tab="true"]{
   visibility: collapse;
+  /* These seem unnecessary, but they achieve compatibility with hide_tabs_with_one_tab.css */
+  min-height: 0 !important;
+  height: 0;
 }
 
 /* Button re-styling */
@@ -55,8 +61,12 @@ Window controls will be all wrong without it
   background-color: transparent !important;
 }
 /* Extra top padding  in maximized window */
-@media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
-  :root[sizemode="maximized"] #navigator-toolbox{ padding-top:7px !important; }
+@media  (-moz-platform: windows),
+        (-moz-os-version: windows-win7),
+        (-moz-os-version: windows-win10){
+  :root[tabsintitlebar][sizemode="maximized"] #navigator-toolbox{
+    padding-top:7px !important;
+  }
 }
 /* Window controls in nav-bar */
 :root:not([customizing]) #toolbar-menubar[inactive]{

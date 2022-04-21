@@ -25,15 +25,25 @@ See the above repository for updates as well as full license text. */
     --multirow-tab-min-width: 100px;
     --multirow-tab-dynamic-width: 1; /* Change to 0 for fixed-width tabs using the above width. */
   }
-  @media (-moz-os-version: windows-win7),(-moz-os-version: windows-win10){
-    :root[sizemode="maximized"]{ --multirow-top-padding: 8px }
+  @media  (-moz-platform: windows),
+        (-moz-os-version: windows-win7),
+        (-moz-os-version: windows-win10){
+    :root[tabsintitlebar][sizemode="maximized"]{
+      --multirow-top-padding: 8px;
+    }
   }
   :root[uidensity="compact"]{--multirow-toolbar-height: 34px}
   :root{ border-top-width: 0px !important }
 
   #main-window > body > box,
-  #navigator-toolbox{ -moz-box-ordinal-group: 2; border-bottom: 0px !important }
+  #navigator-toolbox{
+    -moz-box-ordinal-group: 2;
+    border-bottom: 0px !important;
+  }
   
+  /* Re-order window and tab notification boxes */
+  #navigator-toolbox > div{ display: contents }
+  .global-notificationbox,
   #tab-notification-deck{ -moz-box-ordinal-group: 0 }
 
   #titlebar{-moz-appearance: none !important; } /* Try setting to "-moz-window-titlebar" if you face issues */
@@ -53,7 +63,6 @@ See the above repository for updates as well as full license text. */
     margin-right: 138px;
     /* width == 100vw - margins */
     width: calc(100vw - 168px);
-    top: var(--multirow-top-padding);
   }
 
   :root[inFullscreen] #TabsToolbar > #window-controls{

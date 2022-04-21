@@ -12,14 +12,20 @@ See the above repository for updates as well as full license text. */
   
   #titlebar{ -moz-appearance: none !important; }
 
-  @media (-moz-os-version: windows-win10){
+  @media  (-moz-platform: windows),
+          (-moz-os-version: windows-win7),
+          (-moz-os-version: windows-win10){
     /* Next two variables are used by autohide_menubar.css */
     #toolbar-menubar{ --uc-menubar-extra-margin: 0px }
-    :root[sizemode="maximized"] #toolbar-menubar{ --uc-menubar-extra-margin: 8px }
+    :root[tabsintitlebar][sizemode="maximized"] #toolbar-menubar{
+      --uc-menubar-extra-margin: 8px
+    }
     
     :root[sizemode="maximized"][tabsintitlebar] :where(#browser,#customization-container,#toolbar-menubar){ margin-top: 8px }
   }
 
+  #navigator-toolbox > div{ display: contents }
+  .global-notificationbox,
   #mainPopupSet,
   #browser,
   #customization-container,
@@ -30,7 +36,13 @@ See the above repository for updates as well as full license text. */
   /* Remove the next row if you want tabs to be the top-most row */
   #titlebar{ -moz-box-ordinal-group: 2 } 
 
-  #toolbar-menubar{ position: fixed; display: flex; width: 100vw; top: 0px; }
+  #toolbar-menubar{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    top: 0px;
+    -moz-window-dragging: drag;
+  }
   /* Remove bottom border that won't do anything useful when at bottom of the window */
   #navigator-toolbox{ border-bottom: none !important; }
 
