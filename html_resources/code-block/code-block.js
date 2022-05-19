@@ -24,9 +24,12 @@ class CodeBlock extends HTMLElement{
     CodeBlock.getSource(this.src)
     .then(
       (data) => this.consumeData(data,CodeBlock.InsertMode.Replace),
-      (e) => this.consumeData({content:this.textContent},CodeBlock.InsertMode.Replace)
+      (e) => {
+        if(this.textContent.length){
+          this.consumeData({content:this.textContent},CodeBlock.InsertMode.Replace);
+        }
+      }
     );
-    
   }
   
   get name(){
@@ -313,7 +316,10 @@ class CodeBlock extends HTMLElement{
   }
   
   get codeBox(){
-    return this.shadowRoot.querySelector("tbody");
+    if(!this._codeBox){
+      this._codeBox = this.shadowRoot.querySelector("tbody");
+    }
+    return this._codeBox;
   }
   get value(){
     return this.codeBox.textContent
