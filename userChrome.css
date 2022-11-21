@@ -5,3 +5,8 @@
 #sidebar-header {
   display: none
 }
+
+/* Dynamically hide native tabs when sidebery is showing. */
+#main-window[titlepreface*=" "] #TabsToolbar {
+  display: none;
+}
