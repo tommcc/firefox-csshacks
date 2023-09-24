@@ -42,7 +42,7 @@ This will NOT work correctly if you have hidden tabs such as with tab groups ext
 }
 @media (-moz-platform: linux){
   #TabsToolbar .titlebar-buttonbox{
-    -moz-box-align: stretch !important;
+    align-items: stretch !important;
   }
   #TabsToolbar > .titlebar-buttonbox-container > .titlebar-buttonbox > .titlebar-button{
     transform: scale(0.8);

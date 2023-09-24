@@ -15,7 +15,7 @@ See the above repository for updates as well as full license text. */
 
 #tabbrowser-arrowscrollbox:not([overflowing]) .tab-content[pinned] {
   padding: 0px !important;
-  -moz-box-pack: center;
+  justify-content: center;
 }
 
 .tab-label-container[pinned] {

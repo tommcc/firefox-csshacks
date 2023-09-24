@@ -20,7 +20,7 @@ See the above repository for updates as well as full license text. */
 #urlbar-container,
 #urlbar{
   position: static !important;
-  display: -moz-box !important;
+  display: flex !important;
 }
 #urlbar{
   height: auto !important;
@@ -50,4 +50,4 @@ See the above repository for updates as well as full license text. */
 
 /* This may seem pretty weird, but it gets around an issue where the height of urlbar may suddenly change when one starts typing into it */
 /* If you are otherwise modifying the urlbar height then you might need to modify the height of this too */
-#urlbar > #urlbar-input-container::before{ content: ""; display: -moz-box; height: 24px; }
+#urlbar > #urlbar-input-container::before{ content: ""; display: flex; height: 24px; }

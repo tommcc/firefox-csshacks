@@ -21,7 +21,7 @@ See the above repository for updates as well as full license text. */
 
 :root:not([inFullscreen]) > body::after{
   content: "";
-  display: -moz-box;
+  display: flex;
   margin-bottom: calc(1px + var(--uc-browser-base-padding)) !important;
 }
 
@@ -40,11 +40,13 @@ See the above repository for updates as well as full license text. */
   background-image: -moz-element(#statuspanel);
   max-width: 50vw !important; /* Modify this to let the status bar grow larger than 50% of window width */
   min-width: 60ch;
-  flex-grow: 10;
+  flex-grow: 10 !important;
 }
 
 #personal-toolbar-empty{ visibility: hidden; }
-#PersonalToolbar .toolbarbutton-1{ -moz-box-align: center !important; }
+#PersonalToolbar .toolbarbutton-1{
+  align-items: center !important;
+}
 
 #PersonalToolbar > toolbarspring{
   flex-grow: 1;
@@ -84,7 +86,7 @@ See the above repository for updates as well as full license text. */
 .browserStack > #statuspanel[inactive]::before,
 #statuspanel[inactive] > #statuspanel-inner::before{
   content: "Done";
-  display: -moz-box;
+  display: flex;
   margin-top: 2px;
   color: var(--toolbar-field-color, black) !important;
 }

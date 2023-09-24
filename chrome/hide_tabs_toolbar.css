@@ -39,8 +39,8 @@ Window controls will be all wrong without it
 }
 
 :root[tabsintitlebar] #toolbar-menubar[autohide="true"] #main-menubar{
-  -moz-box-flex: 1;
-  -moz-box-align: stretch;
+  flex-grow: 1;
+  align-items: stretch;
   background-color: var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor);
   background-clip: padding-box;
   border-right: 30px solid transparent;

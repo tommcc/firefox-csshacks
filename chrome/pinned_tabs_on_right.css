@@ -7,20 +7,26 @@ See the above repository for updates as well as full license text. */
 .scrollbutton-up[orient="horizontal"]~spacer{ display: none }
 
 .scrollbutton-up[orient="horizontal"]~scrollbox{
-  -moz-box-direction: inherit;
-  -moz-box-pack: end;
+  justify-content: flex-end;
 }
 
 .scrollbutton-up[orient="horizontal"]~scrollbox::after{
-  display: -moz-box;
   content: "";
-  -moz-box-flex: 1;
-  -moz-box-ordinal-group: 2;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  order: 2;
 }
 
-#tabs-newtab-button{ -moz-box-ordinal-group: 2 }
-.tabbrowser-tab[pinned]{ -moz-box-ordinal-group: 3 }
+#tabs-newtab-button{
+  order: 2;
+}
+.tabbrowser-tab[pinned]{
+  order: 3;
+}
 
 #tabbrowser-tabs[positionpinnedtabs]{ direction: rtl }
-#tabbrowser-tabs[positionpinnedtabs] > arrowscrollbox { -moz-box-direction: reverse }
+#tabbrowser-tabs[positionpinnedtabs] > arrowscrollbox { 
+  flex-direction: row-reverse;
+}
 .tab-content{ direction: ltr }
