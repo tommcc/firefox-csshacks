@@ -72,12 +72,11 @@ findbar::after{
   flex-grow: 100;
 } 
 
-@supports -moz-bool-pref("userchrome.floating-findbar-on-right.enabled"){
+@media (-moz-bool-pref: "userchrome.floating-findbar-on-right.enabled"){
   findbar{
     flex-direction: row-reverse;
   }
   findbar > .findbar-container{
-    -moz-box-direction: reverse;
     flex-direction: row-reverse;
     border-inline-width: 1px 0px;
     border-bottom-right-radius: 0px;

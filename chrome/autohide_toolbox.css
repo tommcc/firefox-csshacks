@@ -16,11 +16,11 @@ See the above repository for updates as well as full license text. */
 }
 
 @media  (-moz-platform: windows){
-  #navigator-toolbox:not(:-moz-lwtheme){ background-color: -moz-dialog !important; }
+  :root:not([lwtheme]) #navigator-toolbox{ background-color: -moz-dialog !important; }
 }
 
 :root[sizemode="fullscreen"],
-#navigator-toolbox[inFullscreen]{ margin-top: 0 !important; }
+:root[sizemode="fullscreen"] #navigator-toolbox{ margin-top: 0 !important; }
 
 #navigator-toolbox{
   position: fixed !important;
@@ -36,11 +36,14 @@ See the above repository for updates as well as full license text. */
   pointer-events: none;
 }
 
-
-/* #mainPopupSet:hover ~ toolbox, */
-/* Uncomment the above line to make toolbar visible if some popup is hovered */
 #navigator-toolbox:hover,
 #navigator-toolbox:focus-within{
+  transition-delay: 33ms !important;
+  transform: rotateX(0);
+  opacity: 1;
+}
+/* This ruleset is separate, because not having :has support breaks other selectors as well */
+#mainPopupSet:has(> #appMenu-popup:hover) ~ toolbox{
   transition-delay: 33ms !important;
   transform: rotateX(0);
   opacity: 1;
